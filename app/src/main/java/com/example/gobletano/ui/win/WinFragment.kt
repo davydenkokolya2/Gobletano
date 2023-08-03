@@ -6,27 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.example.gobletano.R
+import com.example.gobletano.databinding.FragmentWinBinding
+import com.example.gobletano.ui.NavigationAppViewModel
+import com.example.gobletano.util.Screens
 
 class WinFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = WinFragment()
-    }
-
-    private lateinit var viewModel: WinViewModel
+    private lateinit var binding: FragmentWinBinding
+    private val navigationAppViewModel: NavigationAppViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_win, container, false)
+        binding = FragmentWinBinding.inflate(inflater, container, false)
+        binding.btnMenu.setOnClickListener {
+            navigationAppViewModel.loadState(Screens.MENU)
+        }
+        binding.btnNextLevel.setOnClickListener {
+            navigationAppViewModel.loadState(Screens.LEVEL)
+        }
+        return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(WinViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

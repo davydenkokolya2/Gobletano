@@ -6,13 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.example.gobletano.R
+import com.example.gobletano.databinding.FragmentLoseBinding
+import com.example.gobletano.databinding.FragmentWinBinding
+import com.example.gobletano.ui.NavigationAppViewModel
+import com.example.gobletano.util.Screens
 
 class LoseFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LoseFragment()
-    }
+    private lateinit var binding: FragmentLoseBinding
+    private val navigationAppViewModel: NavigationAppViewModel by activityViewModels()
 
     private lateinit var viewModel: LoseViewModel
 
@@ -20,7 +24,14 @@ class LoseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_lose, container, false)
+        binding = FragmentLoseBinding.inflate(inflater, container, false)
+        binding.btnMenuLose.setOnClickListener {
+            navigationAppViewModel.loadState(Screens.MENU)
+        }
+        binding.btnPlayAgain.setOnClickListener {
+            navigationAppViewModel.loadState(Screens.LEVEL)
+        }
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Gobletano</string>
+    <string name="_00_00">00:00</string>
+    <string name="kitty">KITTY</string>
+    <string name="_00_21">00:21</string>
+    <string name="maggy">MAGGY</string>
+    <string name="_01_09">01:09</string>
+    <string name="swen">SWEN</string>
+    <string name="_01_12">01:12</string>
+    <string name="you">YOU</string>
+    <string name="_01_10">01:10</string>
+    <string name="fffff">FFFFF</string>
+    <string name="_01_14">01:14</string>
+    <string name="mirror">MIRROR</string>
+    <string name="_01_16">01:16</string>
+    <string name="flay">FLAY</string>
+    <string name="_01_18">01:18</string>
+    <string name="bang">BANG</string>
+    <string name="_01_20">01:20</string>
+    <string name="qwerty">QWERTY</string>
+    <string name="_01_24">01:24</string>
+    <string name="flaffy">FLAFFY</string>
+    <string name="_01_22">01:22</string>
+    <string name="piggy">PIGGY</string>
+    <string name="_00_34">00:34</string>
 </resources>

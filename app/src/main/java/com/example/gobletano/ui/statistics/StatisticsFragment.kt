@@ -6,13 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.example.gobletano.R
+import com.example.gobletano.databinding.FragmentStatisticsBinding
+import com.example.gobletano.databinding.FragmentWinBinding
+import com.example.gobletano.ui.NavigationAppViewModel
+import com.example.gobletano.util.Screens
 
 class StatisticsFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = StatisticsFragment()
-    }
+    private lateinit var binding: FragmentStatisticsBinding
+    private val navigationAppViewModel: NavigationAppViewModel by activityViewModels()
 
     private lateinit var viewModel: StatisticsViewModel
 
@@ -20,7 +24,11 @@ class StatisticsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_statistics, container, false)
+        binding = FragmentStatisticsBinding.inflate(inflater, container, false)
+        binding.btnBackStatistics.setOnClickListener {
+            navigationAppViewModel.loadState(Screens.MENU)
+        }
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
